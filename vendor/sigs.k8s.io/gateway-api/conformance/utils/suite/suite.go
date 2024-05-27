@@ -511,6 +511,8 @@ func getAPIVersionAndChannel(crds []apiextensionsv1.CustomResourceDefinition) (v
 		return "", "", errors.New("no Gateway API CRDs with the proper annotations found in the cluster")
 	}
 	if version != consts.BundleVersion {
+		fmt.Printf("version: %#v\n", version)
+		fmt.Printf("BundleVersion: %#v\n", consts.BundleVersion)
 		return "", "", errors.New("the installed CRDs version is different from the suite version")
 	}
 
